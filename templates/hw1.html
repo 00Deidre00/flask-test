@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        /* 기본 스타일 초기화 및 폰트 설정 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 전체를 감싸는 컨테이너 스타일 */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 메인 제목 스타일 */
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* 각 섹션 제목 스타일 */
+        h2 {
+            font-size: 1.5em;
+            color: #343a40;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c3e50;
+        }
+
+        /* Problem Statement Canvas 레이아웃 스타일 */
+        .problem-canvas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Problem Statement Canvas의 각 항목 스타일 */
+        .canvas-item {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .canvas-item h3 {
+            font-size: 1.1em;
+            color: #495057;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* 리스트 스타일 (기본: 박스형) */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        /* 기능 명세 부분의 스타일 */
+        .feature-list h4 {
+            margin-top: 15px;
+            color: #2c3e50;
+        }
+
+        
+        .feature-list ul {
+            list-style-type: disc; 
+            padding-left: 20px;    
+        }
+
+        .feature-list ul li {
+            background-color: transparent; 
+            padding: 2px 0;                
+            border-radius: 0;              
+            margin-bottom: 5px;          
+        }
+
+
+        /* 시스템 흐름 섹션 스타일 */
+        .flow-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #2c3e50;
+        }
+
+        /* 와이어프레임 섹션 스타일 */
+        .wireframe-section p {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        <!-- 1. Problem Statement Canvas 섹션 -->
+        <h2>1) Problem Statement Canvas</h2>
+        <div class="problem-canvas">
+            <div class="canvas-item">
+                <h3>고객 (Customer)</h3>
+                <p>서울시 공공자전거 재배치 담당자 및 관리자.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>컨텍스트 (Context)</h3>
+                <p>실시간으로 변화하는 대여소별 자전거 수요와 공급 상황에 대응하며 재배치 업무를 수행하는 환경.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>근본 문제 (Root Problem)</h3>
+                <p>재배치 담당자의 임의적이고 자체적인 판단에 의존하는 현재 운영방식은 비효율을 초래하고 기회비용을 증가시킴.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>감정적 영향 (Negative Emotions)</h3>
+                <p>과도한 피로도, 불확실성에서 오는 스트레스.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>정량적 영향 (Negative Outcomes)</h3>
+                <p>기회비용 증가, 낮은 재고 만족률, 사용자의 대여/반납 불가 상황 빈번 발생.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>대안 (Current Alternatives)</h3>
+                <p>실시간 거치율만 확인하며 담당자의 경험과 직감에 의존하는 기존 운영방식.</p>
+            </div>
+            <div class="canvas-item">
+                <h3>대안의 단점 (Downsides of Alternatives)</h3>
+                <p>미래 수요 예측 불가, 전역 최적 경로 탐색 불가능, 주관적 판단으로 인한 성과 편차 발생.</p>
+            </div>
+        </div>
+
+        <!-- 2. 솔루션 섹션 -->
+        <h2>2) 솔루션 (Solution in 3 Lines)</h2>
+        <ul>
+            <li><strong>Line 1:</strong> Random Forest 예측 모델을 통해 시간대별 대여/반납 수요를 예측하고, 이를 기반으로 대여소별 '적정 재고 수준(Bound)'을 동적으로 설정합니다.</li>
+            <li><strong>Line 2:</strong> 클러스터링, Tabu Search, MIP 수리모형을 결합한 3단계 최적화 알고리즘으로 담당자별 최적 재배치 경로와 수량을 도출합니다.</li>
+            <li><strong>Line 3:</strong> 관리자와 재배치 담당자를 위한 전용 애플리케이션(UBD Application)을 통해 이 모든 과정을 시각적으로 제공하고 업무 효율을 극대화합니다.</li>
+        </ul>
+
+        <!-- 3. 기능 명세 섹션 -->
+        <h2 class="feature-list">3) 기능 명세 (Feature List)</h2>
+        <div class="feature-list">
+            <h4>공통 기능</h4>
+            <ul>
+                <li>실시간 재고 현황 시각화: 부족(빨강), 적정(회색), 초과(파랑) 색상으로 표시</li>
+                <li>상세 정보 조회: 마커 선택 시 '적정 재고 수준' 상/하한선 그래프 제공</li>
+            </ul>
+
+            <h4>관리자 화면</h4>
+            <ul>
+                <li>알고리즘 실행 기능 (담당자 수 입력)</li>
+                <li>군집화 결과 확인 (지도에서 시각적으로 확인)</li>
+                <li>결과 전송 (담당자에게 최적 경로 및 작업량 전송)</li>
+            </ul>
+
+            <h4>재배치 담당자 화면</h4>
+            <ul>
+                <li>최적 경로 확인 (총 예상 소요 시간 및 거리)</li>
+                <li>순차적 작업 안내 (다음/다다음 경로 표시)</li>
+                <li>진행률 시각화 (작업 완료율, 시간 경과율 프로그레스 바)</li>
+                <li>작업량 안내 (정확한 재배치 수량 제시)</li>
+            </ul>
+        </div>
+        
+        <!-- 4. 시스템 아키텍처 및 흐름 섹션 -->
+        <h2>4) 시스템 아키텍처 및 흐름</h2>
+        <div class="flow-item">
+            <p><strong>요청(App) → 데이터 전송(API) → 연산(Algorithm) → 결과 전송(API) → 시각화(App)</strong></p>
+            <p>사용자의 요청에 따라 실시간 API 데이터를 Flask 서버로 전송하고, 서버에서 알고리즘 연산 후 그 결과를 다시 앱으로 보내 지도 위에 시각화하는 구조로 동작합니다.</p>
+        </div>
+
+        <!-- 5. 와이어 프레임 섹션 -->
+        <h2>5) 와이어 프레임 (스케치)</h2>
+        <div class="wireframe-section">
+            <p>
+                아래는 제안하는 애플리케이션의 주요 화면 흐름을 나타낸 와이어프레임입니다. 
+                사용자는 시작 화면(Screen 1)에서 로그인을 거쳐(Screen 2) 메인 지도 화면으로 진입합니다(Screen 3). 
+                메인 화면에서는 추천 경로, 작업 진행률을 확인할 수 있으며, 각 대여소 마커를 클릭하면 상세 정보(Screen 3-1)를 볼 수 있습니다. 
+                모든 작업을 완료하면 완료 메시지(Screen 3-2)가 표시됩니다.
+            </p>
+            <img src="/static/Bicycle Relocation Optimization.jpg" alt="와이어프레임 스케치" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 15px;">
+        </div>
+        
+    </div>
+</body>
+</html>
+

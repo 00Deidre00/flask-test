@@ -2,13 +2,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.get("/")
-def index():
-    return "Hello, Flask!"
-
-@app.get("/home")
-def home():
-    return render_template("home.html", title="Flask 템플릿 연결")
+@app.get("/hw1")
+def display_hw1():
+    return render_template("hw1.html", title="공공자전거 재배치 최적화 시스템 기획안")
 
 if __name__ == "__main__":
-    app.run() #기본: http://127.0.0.1:5000
+    app.run(debug=True) #기본: http://127.0.01:5000, http://127.0.0.1:5000/hw1
